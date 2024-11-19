@@ -28,5 +28,6 @@ public class test {
 
     public static void Test(String[] args) {
         System.out.println("Test");
+        System.out.println("Hola");
     }
 }
