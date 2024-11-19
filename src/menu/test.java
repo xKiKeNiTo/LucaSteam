@@ -25,4 +25,8 @@ public class test {
 	public static void adios() {
 		System.out.println("adios");
 	}
+
+    public static void Test(String[] args) {
+        System.out.println("Test");
+    }
 }
