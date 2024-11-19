@@ -21,4 +21,8 @@ public class test {
         System.out.print(">> ");
         System.out.println("test");
     }
+	
+	public static void adios() {
+		System.out.println("adios");
+	}
 }
