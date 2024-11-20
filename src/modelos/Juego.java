@@ -20,14 +20,6 @@ public class Juego {
 	private double globalSales;
 	private Platform platform;
 	private Genre genre;
-	
-	public enum Platform {
-		WII, NES, GB, DS, X360, PS3, PS2, SNES, GBA, PS4, PS, _3DS, _2600, GC, WIIU, XB, PC, GEN, N64, XONE, PSP
-	};
-	
-	public enum Genre {	
-		SPORTS, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SHOOTER, SIMULATION, ACTION, FIGHTING, ADVENTURE
-	};
 
 	// Getters & Setters
 	public int getRank() {
@@ -108,6 +100,14 @@ public class Juego {
 
 	public void setPlatform(Platform platform) {
 		this.platform = platform;
+	};
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	};
 
 	// Contructores
