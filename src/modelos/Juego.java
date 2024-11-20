@@ -20,7 +20,7 @@ public class Juego {
 	private double globalSales;
 	private Platform platform;
 	private Genre genre;	
-	
+
 	// Getters & Setters
 	public int getRank() {
 		return rank;
@@ -103,8 +103,8 @@ public class Juego {
 	};
 
 	// Contructores
-	public Juego(int rank, String name, Platform platform, int year, Genre genre, String publisher, double naSales, double euSales, double jpSales,
-			double otherSales, double globalSales) {
+	public Juego(int rank, String name, int year, String publisher, double naSales, double euSales, double jpSales,
+			double otherSales, double globalSales, Platform platform, Genre genre) {
 		super();
 		this.rank = rank;
 		this.name = name;
@@ -122,7 +122,6 @@ public class Juego {
 	public Juego() {
 		super();
 	}
-	
 
 	// toString
 	@Override
