@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class lectorCSV {
+public class LectorCSV {
 
     private List<List<String>> juegos;
 
     // Constructor
-    public lectorCSV() {
+    public LectorCSV() {
         this.juegos = new ArrayList<>();
     }
     
@@ -28,7 +28,7 @@ public class lectorCSV {
             }
         }
     }
-    public static List<List<String>> getJuegos() {
+    public List<List<String>> getJuegos() {
         return juegos;
     }
 
