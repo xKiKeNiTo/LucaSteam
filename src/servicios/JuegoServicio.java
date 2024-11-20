@@ -1,5 +1,10 @@
 package servicios;
 
+import datos.JuegoDato;
+import java.util.List;
+import modelos.Genre;
+import modelos.Juego;
+
 /**
  * Clase JuegoServicio
  * Descripción... 
@@ -9,7 +14,14 @@ package servicios;
  */
 
 public class JuegoServicio {
+
+    private JuegoDato datos = new JuegoDato();
 	
-	
+	/**
+     * Redirecciona a datos para filtrar los juegos cargados en la clase por un género específico.
+     */
+    public List<Juego> listarPorGenero(Genre genero) {
+        return datos.listarPorGenero(genero);
+    }
 
 }
