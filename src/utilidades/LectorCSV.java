@@ -6,16 +6,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class lectorCSV {
+/**
+ * Clase para leer archivos CSV.
+ * @version 1.1
+ */
+public class LectorCSV {
 
-    private List<List<String>> juegos;
+    private static List<List<String>> juegos;
 
     // Constructor
-    public lectorCSV() {
+    public LectorCSV() {
         this.juegos = new ArrayList<>();
     }
-    
-    public void leerCSV(String filePath) throws IOException {
+
+    /**
+     * Método para leer un archivo CSV y cargarlo en una lista de listas.
+     * 
+     */
+    public static void leerCSV(String filePath) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -28,23 +36,31 @@ public class lectorCSV {
             }
         }
     }
+
+    /**
+     * Obtener los juegos leídos del archivo CSV.
+     * @return Lista de listas representando las filas del CSV.
+     */
     public List<List<String>> getJuegos() {
         return juegos;
     }
 
+    /**
+     * Método principal para probar la lectura de un archivo CSV.
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
-        lectorCSV lector = new lectorCSV();
-        String filePath = "vgsales.csv";
+        LectorCSV lector = new LectorCSV();
+        String filePath = "vgsales.csv"; // Ruta del archivo CSV
 
         try {
             lector.leerCSV(filePath); // Leer el archivo y llenar la lista
             List<List<String>> contenido = lector.getJuegos();
 
             // Imprimir el contenido
-            
-            for (List<String> fila : contenido) {
-                System.out.println(fila);
-            }
+//            for (List<String> fila : contenido) {
+//                System.out.println(fila);
+//            }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo CSV: " + e.getMessage());
         }
