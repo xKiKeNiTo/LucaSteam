@@ -19,7 +19,7 @@ public class Juego {
 	private double otherSales;
 	private double globalSales;
 	private Platform platform;
-	private Genre genre;	
+	private Genre genre;
 
 	// Getters & Setters
 	public int getRank() {
@@ -100,6 +100,14 @@ public class Juego {
 
 	public void setPlatform(Platform platform) {
 		this.platform = platform;
+	};
+
+	public Genre getGenre() {
+		return genre;
+	}
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	};
 
 	// Contructores

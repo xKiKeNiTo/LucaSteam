@@ -5,7 +5,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import modelos.Genre;
 import modelos.Juego;
 import modelos.Platform;
@@ -77,9 +76,11 @@ public class LectorCSV {
                 double jpSales = Double.parseDouble(valores[8].trim());
                 double otherSales = Double.parseDouble(valores[9].trim());
                 double globalSales = Double.parseDouble(valores[10].trim());
-                             
+
                 // Crear objeto Juego
-                Juego juego = new Juego(rank, name, year, publisher, naSales, euSales, jpSales, otherSales, globalSales, platform, genre);
+                Juego juego = new Juego(rank, name, year, publisher, naSales, euSales, jpSales,
+                                        otherSales, globalSales, platform, genre);
+
                 juegos.add(juego);
 
             } catch (IllegalArgumentException e) {

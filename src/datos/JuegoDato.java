@@ -1,11 +1,10 @@
 package datos;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-
-import modelos.Juego;
-import modelos.Platform;
 import modelos.Genre;
+import modelos.Juego;
 import utilidades.LectorCSV;
 
 /**
@@ -42,7 +41,33 @@ public class JuegoDato {
 			System.err.println("Error al leer el archivo CSV: " + e.getMessage());
             return false;
 		}
-		
 	}
 	
+	/**
+     * Filtra los juegos cargados en la clase por un género específico.
+     *
+     * @param genero El género por el cual filtrar.
+     * @return Una lista de juegos que corresponden al género proporcionado.
+     */
+    public static List<Juego> listarPorGenero(Genre genero) {
+		LectorCSV lector = new LectorCSV();
+		
+		List<Juego> juegosFiltrados = new ArrayList<>();
+		try {
+			lector.leerCSV();
+			List<Juego> juegos = lector.getJuegos();
+			for (Juego juego : juegos) {
+				if (juego.getGenre() == genero) {
+					juegosFiltrados.add(juego);
+				}
+			}
+		} catch (IOException e) {
+			System.err.println("Error al leer el archivo CSV: " + e.getMessage());
+		}
+        return juegosFiltrados;
+    }
+
+	public static void main(String[] args) {
+		listarPorGenero(Genre.Misc);
+	}
 }
