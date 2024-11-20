@@ -17,8 +17,8 @@ public class MenuPrincipal {
             
             switch (opcion) {
 			case 1 -> FormularioAlta.mostrarMenu();
-			case 2 -> MenuListarJuegos.mostrarMenu();
-			case 3 -> MenuListarPorGenero.mostrarMenu();
+			case 2 -> MenuListarJuegos.listarJuegos();
+			case 3 -> MenuListarPorGenero.darDeAlta();
 			case 4 -> {
                 System.out.println("¡Hasta luego!");
                 salir = true;
