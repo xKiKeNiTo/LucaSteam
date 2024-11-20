@@ -1,8 +1,8 @@
 package menu;
 
 import modelos.Juego;
-import modelos.Juego.Platform;
-import modelos.Juego.Genre;
+import modelos.Genre;
+import modelos.Platform;
 import servicios.JuegoServicio;
 import utilidades.LeerTeclado;
 

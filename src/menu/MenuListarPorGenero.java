@@ -1,6 +1,6 @@
 package menu;
 
-import modelos.Juego.Genre;
+import modelos.Genre;
 import servicios.JuegoServicio;
 import utilidades.LeerTeclado;
 
