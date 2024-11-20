@@ -1,5 +1,6 @@
 package datos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import modelos.Genre;
@@ -8,21 +9,19 @@ import utilidades.LectorCSV;
 
 /**
  * Clase JuegoDato
- * Descripción... 
+ * Para interactuar con los datos de los juegos. Recibimos los datos desde el CSV. 
  * 19/11/2024
- * Versión 1
- * Raúl
+ * @version 1
+ * @author raul_
+ * Fecha: 20/11/2024
  */
 
 public class JuegoDato {
-
-	private static LectorCSV lector = new LectorCSV();
-	private static List<Juego> juegos;
-
-	// public static boolean listarJuegos() {
+	
+	public static boolean listarJuegos() {
 		
 	// }
-
+	
 	/**
      * Filtra los juegos cargados en la clase por un género específico.
      *

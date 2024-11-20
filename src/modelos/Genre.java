@@ -13,12 +13,16 @@ public enum Genre{
     Simulation,
     Sports,
     Strategy;
-
-    //Método para mapear los valores del CSV al Enum
+	
+	//Método para mapear los valores del CSV al Enum
 	public static Genre fromString(String genreText) {
-        return switch (genreText) {
-            case "Role-Playing" -> Role_Playing;
-            default -> Genre.valueOf(genreText);
-        }; // Si coincide exactamente, usar el valor del Enum
+	    switch (genreText) {
+	        case "Role-Playing":
+	            return Role_Playing;
+	        default:
+	            return Genre.valueOf(genreText); // Si coincide exactamente, usar el valor del Enum
+	    }
 	}
 };
+
+

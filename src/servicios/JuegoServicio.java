@@ -1,16 +1,19 @@
 package servicios;
 
 import datos.JuegoDato;
+
+import datos.JuegoDato;
 import java.util.List;
 import modelos.Genre;
 import modelos.Juego;
 
 /**
  * Clase JuegoServicio
- * Descripción... 
+ * Maneja la lógica 
  * 19/11/2024
- * Versión 1
- * Raúl
+ * @version 1.1
+ * @author raul_
+ * Fecha 20/11/2014
  */
 
 public class JuegoServicio {
@@ -28,4 +31,17 @@ public class JuegoServicio {
         return datos.listarPorGenero(genero);
     }
 
+	
+	private JuegoDato juegoDato;
+	
+	// Constructor
+	public JuegoServicio() {
+		this.juegoDato = new JuegoDato();
+	}
+	
+	public boolean listarJuegos() {
+		System.out.println("Listado de Juegos: ");
+		return JuegoDato.listarJuegos();
+	}
+		
 }

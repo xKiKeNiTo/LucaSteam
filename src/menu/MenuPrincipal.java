@@ -41,8 +41,8 @@ public class MenuPrincipal {
                         }
                     }
                     case 2 -> {
-                        logger.info("Seleccionada opción 2: Listar todos los juegos");
-                        boolean listadoExitoso = MenuListarJuegos.listarJuegos();
+                        logger.info("Seleccionada opción 2: Listar todos los juegos");                        
+                        boolean listadoExitoso = MenuListarJuegos.listarJuegos();                        
                         if (!listadoExitoso) {
                             logger.warning("El listado de juegos falló.");
                         }

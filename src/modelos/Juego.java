@@ -4,8 +4,8 @@ package modelos;
  * Clase Juego
  * Modelo para los objetos de tipo Juego con los atributos, getters, setters y toString 
  * 19/11/2024
- * Versión 1
- * Raúl
+ * @version 1
+ * @author raul_
  */
 
 public class Juego {
@@ -130,7 +130,7 @@ public class Juego {
 	public Juego() {
 		super();
 	}
-	
+
 	// toString
 	@Override
 	public String toString() {
