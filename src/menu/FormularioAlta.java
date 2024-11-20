@@ -14,7 +14,9 @@ import utilidades.LeerTeclado;
  */
 public class FormularioAlta {
 	
-	public static boolean mostrarMenu() {
+	private static final JuegoServicio juegoServicio = new JuegoServicio();
+	
+	public static boolean darDeAlta() {
 		try {
 
             System.out.println("Formulario para dar de alta un nuevo juego:");
@@ -33,7 +35,6 @@ public class FormularioAlta {
             Genre genre = seleccionarGenero();
 			
             Juego juego = new Juego(rank, name, year, publisher, naSales, euSales, jpSales, otherSales, globalSales, platform, genre);
-            JuegoServicio juegoServicio = new JuegoServicio();
             juegoServicio.darDeAlta(juego);
             
 			return true;

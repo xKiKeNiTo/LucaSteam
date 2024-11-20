@@ -6,10 +6,12 @@ import utilidades.LeerTeclado;
 import java.util.List;
 
 /**
- * 
+ * Clase para listar los juegos filtrados por género.
  * @version 1.0
  */
 public class MenuListarPorGenero {
+	
+	private static final JuegoServicio juegoServicio = new JuegoServicio();
 	
 	public static void listarPorGenero() {
 		
@@ -32,7 +34,6 @@ public class MenuListarPorGenero {
         Genre generoSeleccionado = generos[opcion - 1];
 	
         // Llamar al servicio para obtener la lista de juegos por género
-        JuegoServicio juegoServicio = new JuegoServicio();
         List<String> juegos = juegoServicio.listarPorGenero(generoSeleccionado);
         
         // Mostrar resultados

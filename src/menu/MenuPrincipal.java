@@ -2,6 +2,11 @@ package menu;
 
 import utilidades.LeerTeclado;
 
+/**
+ * Menú principal.
+ * @version 1.0
+ */
+
 public class MenuPrincipal {
 
 	public static void mostrarMenu() {
@@ -16,16 +21,11 @@ public class MenuPrincipal {
             int opcion = LeerTeclado.leerInt("Seleccione una opción:");
             
             switch (opcion) {
-			case 1 -> FormularioAlta.mostrarMenu();
+			case 1 -> FormularioAlta.darDeAlta();
 			case 2 -> MenuListarJuegos.listarJuegos();
-			case 3 -> MenuListarPorGenero.darDeAlta();
-			case 4 -> {
-                System.out.println("¡Hasta luego!");
-                salir = true;
-            }
-			
+			case 3 -> MenuListarPorGenero.listarPorGenero();
+			case 4 -> salir = true;
 			default -> System.out.println("Opción inválida, intente nuevamente.");
-			
 			}
             
 		}
@@ -34,7 +34,3 @@ public class MenuPrincipal {
 	
 }
 
-/**
- * Menú principal.
- * @version 1.0
- */
