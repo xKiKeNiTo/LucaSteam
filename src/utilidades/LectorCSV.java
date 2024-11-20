@@ -49,6 +49,7 @@ public class LectorCSV {
      */
     public List<Juego> getJuegos() {
         List<Juego> juegos = new ArrayList<>();
+        
 
         // Convertir cada línea en un objeto Juego
         for (String linea : lineasCSV) {
@@ -56,9 +57,17 @@ public class LectorCSV {
             try {
                 int rank = Integer.parseInt(valores[0].trim());
                 String name = valores[1].trim();
-                Platform platform = Platform.valueOf(valores[2].trim());
-                int year = Integer.parseInt(valores[3].trim());
-                Genre genre = Genre.valueOf(valores[4].trim());
+                Platform platform = Platform.fromString(valores[2].trim()); // Llamamos desde el fromString de la clase Platform
+                
+                // Hay algunos registros que en year pone N/A por lo que hay que manejar los años no válidos
+                int year;
+                try {
+                    year = Integer.parseInt(valores[3].trim());
+                } catch (NumberFormatException e) {
+                    year = 0; // 
+                }
+                
+                Genre genre = Genre.fromString(valores[4].trim());  // Llamamos desde el fromString de la clase Genre
                 String publisher = valores[5].trim();
                 double naSales = Double.parseDouble(valores[6].trim());
                 double euSales = Double.parseDouble(valores[7].trim());

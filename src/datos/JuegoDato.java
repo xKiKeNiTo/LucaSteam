@@ -10,15 +10,16 @@ import utilidades.LectorCSV;
 
 /**
  * Clase JuegoDato
- * Clase JuegoDato para interactuar con los datos de los juegos. Recibimos los datos desde el CSV. 
+ * Para interactuar con los datos de los juegos. Recibimos los datos desde el CSV. 
  * 19/11/2024
  * @version 1
  * @author raul_
+ * Fecha: 20/11/2014
  */
 
 public class JuegoDato {
 	
-	public boolean listarJuegos() {
+	public static boolean listarJuegos() {
 		LectorCSV lector = new LectorCSV();
 		
 		try {
@@ -30,11 +31,6 @@ public class JuegoDato {
 				return false;				
 			}
 			
-			// Mostrar los juegos por consola
-			System.out.println("Juegos desde datos: ");
-			for (Juego juego : juegos) {
-				System.out.println(juego);
-			}
 			return true;
 			
 		} catch (IOException e) {

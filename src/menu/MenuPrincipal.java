@@ -16,9 +16,9 @@ public class MenuPrincipal {
             int opcion = LeerTeclado.leerInt("Seleccione una opción:");
             
             switch (opcion) {
-			case 1 -> FormularioAlta.mostrarMenu();
-			case 2 -> MenuListarJuegos.mostrarMenu();
-			case 3 -> MenuListarPorGenero.mostrarMenu();
+//			case 1 -> FormularioAlta.mostrarMenu();
+//			case 2 -> MenuListarJuegos.mostrarMenu();
+//			case 3 -> MenuListarPorGenero.mostrarMenu();
 			case 4 -> {
                 System.out.println("¡Hasta luego!");
                 salir = true;
