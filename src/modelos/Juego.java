@@ -1,5 +1,13 @@
 package modelos;
 
+/**
+ * Clase Juego
+ * Modelo para los objetos de tipo Juego con los atributos, getters, setters y toString 
+ * 19/11/2024
+ * Versión 1
+ * Raúl
+ */
+
 public class Juego {
 	private int rank;
 	private String name;
@@ -10,13 +18,16 @@ public class Juego {
 	private double jpSales;
 	private double otherSales;
 	private double globalSales;
+	private Platform platform;
+	private Genre genre;
 	
-//	public enum Platform {
-//		WII, NES, GB, DS, X360, PS3, PS2, SNES, GBA, PS4, PS, _3DS, _2600, GC, WIIU, XB, PC, GEN, N64, XONE, PSP
-//	};
-//	
-//	public enum Genre {		
-//	};
+	public enum Platform {
+		WII, NES, GB, DS, X360, PS3, PS2, SNES, GBA, PS4, PS, _3DS, _2600, GC, WIIU, XB, PC, GEN, N64, XONE, PSP
+	};
+	
+	public enum Genre {	
+		SPORTS, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SHOOTER, SIMULATION, ACTION, FIGHTING, ADVENTURE
+	};
 
 	// Getters & Setters
 	public int getRank() {
@@ -90,10 +101,18 @@ public class Juego {
 	public void setGlobalSales(double globalSales) {
 		this.globalSales = globalSales;
 	}
+	
+	public Platform getPlatform() {
+		return platform;
+	}
+
+	public void setPlatform(Platform platform) {
+		this.platform = platform;
+	};
 
 	// Contructores
 	public Juego(int rank, String name, int year, String publisher, double naSales, double euSales, double jpSales,
-			double otherSales, double globalSales) {
+			double otherSales, double globalSales, Platform platform, Genre genre) {
 		super();
 		this.rank = rank;
 		this.name = name;
@@ -104,18 +123,29 @@ public class Juego {
 		this.jpSales = jpSales;
 		this.otherSales = otherSales;
 		this.globalSales = globalSales;	
-	}
+		this.platform = platform;
+		this.genre = genre;
+		}
 
 	public Juego() {
 		super();
 	}
-
+	
 	// toString
 	@Override
 	public String toString() {
-		return "Juego [rank=" + rank + ", name=" + name + ", year=" + year + ", publisher=" + publisher + ", naSales="
-				+ naSales + ", euSales=" + euSales + ", jpSales=" + jpSales + ", otherSales=" + otherSales
-				+ ", globalSales=" + globalSales + "]";
-	};
-	     
+		return "Juego [rank=" + rank + 
+				", name=" + name + 
+				", year=" + year + 
+				", publisher=" + publisher + 
+				", platform=" + platform + 
+				", genre=" + genre + 
+				", naSales=" + naSales + 
+				", euSales=" + euSales + 
+				", jpSales=" + jpSales + 
+				", otherSales=" + otherSales + 
+				", globalSales=" + globalSales + 				
+				"]";
+	}
+			     
 }
