@@ -28,25 +28,25 @@ public class lectorCSV {
             }
         }
     }
-    public List<List<String>> getJuegos() {
+    public static List<List<String>> getJuegos() {
         return juegos;
     }
 
-    public static void main(String[] args) {
-        lectorCSV lector = new lectorCSV();
-        String filePath = "vgsales.csv";
+    // public static void main(String[] args) {
+    //     lectorCSV lector = new lectorCSV();
+    //     String filePath = "vgsales.csv";
 
-        try {
-            lector.leerCSV(filePath); // Leer el archivo y llenar la lista
-            List<List<String>> contenido = lector.getJuegos();
+    //     try {
+    //         lector.leerCSV(filePath); // Leer el archivo y llenar la lista
+    //         List<List<String>> contenido = lector.getJuegos();
 
-            // Imprimir el contenido
+    //         // Imprimir el contenido
             
-            for (List<String> fila : contenido) {
-                System.out.println(fila);
-            }
-        } catch (IOException e) {
-            System.err.println("Error al leer el archivo CSV: " + e.getMessage());
-        }
-    }
+    //         for (List<String> fila : contenido) {
+    //             System.out.println(fila);
+    //         }
+    //     } catch (IOException e) {
+    //         System.err.println("Error al leer el archivo CSV: " + e.getMessage());
+    //     }
+    // }
 }
