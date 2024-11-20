@@ -8,7 +8,7 @@ import datos.JuegoDato;
  * 19/11/2024
  * @version 1.1
  * @author raul_
- * Fecha: 20/11/2014
+ * Fecha 20/11/2014
  */
 
 public class JuegoServicio {

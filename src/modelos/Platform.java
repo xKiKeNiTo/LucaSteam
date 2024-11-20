@@ -26,7 +26,12 @@ public enum Platform{
     DC,
     SAT,
     PCFX,
-    NG;
+    NG,
+    SCD,
+    WS,
+    TG16,
+    GG,
+    _3DO;
 	
 	// Método para mapear los valores del CSV al Enum
     public static Platform fromString(String platformText) {
@@ -35,6 +40,8 @@ public enum Platform{
                 return _3DS; 
             case "2600":
             	return _2600;
+            case "3DO":
+            	return _3DO;
             default:
                 return Platform.valueOf(platformText); // Si coincide exactamente, usar el valor del Enum
         }

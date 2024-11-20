@@ -14,7 +14,7 @@ import utilidades.LectorCSV;
  * 19/11/2024
  * @version 1
  * @author raul_
- * Fecha: 20/11/2014
+ * Fecha: 20/11/2024
  */
 
 public class JuegoDato {
@@ -31,6 +31,11 @@ public class JuegoDato {
 				return false;				
 			}
 			
+			// Mostrar los juegos por consola
+			System.out.println("Juegos: ");
+			for (Juego juego : juegos) {
+				System.out.println(juego);
+			}
 			return true;
 			
 		} catch (IOException e) {

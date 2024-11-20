@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import modelos.Genre;
 import modelos.Juego;
 import modelos.Platform;
@@ -38,22 +39,24 @@ public class LectorCSV {
                     primeraLinea = false;
                     continue;
                 }
+             // Usamos una expresión regular para manejar las comas dentro de las comillas
+                String[] valores = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
                 lineasCSV.add(linea.trim());  // Almacenar solo las líneas de datos
             }
         }
     }
-
+     
     /**
      * Obtener los juegos leídos del archivo CSV.
      * @return Lista de listas representando las filas del CSV.
      */
     public List<Juego> getJuegos() {
         List<Juego> juegos = new ArrayList<>();
-        
 
         // Convertir cada línea en un objeto Juego
         for (String linea : lineasCSV) {
-            String[] valores = linea.split(",");
+        	String[] valores = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            
             try {
                 int rank = Integer.parseInt(valores[0].trim());
                 String name = valores[1].trim();
@@ -77,7 +80,6 @@ public class LectorCSV {
                              
                 // Crear objeto Juego
                 Juego juego = new Juego(rank, name, year, publisher, naSales, euSales, jpSales, otherSales, globalSales, platform, genre);
-
                 juegos.add(juego);
 
             } catch (IllegalArgumentException e) {
