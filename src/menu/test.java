@@ -22,6 +22,10 @@ public class test {
         System.out.println("test");
     }
 	
+	public static void hola() {
+		System.out.println("hola");
+	}
+	
 	public static void adios() {
 		System.out.println("adios");
 	}
