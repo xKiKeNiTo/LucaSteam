@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class lectorCSV {
+public class LectorCSV {
 
     private List<List<String>> juegos;
 
     // Constructor
-    public lectorCSV() {
+    public LectorCSV() {
         this.juegos = new ArrayList<>();
     }
     
@@ -33,7 +33,7 @@ public class lectorCSV {
     }
 
     public static void main(String[] args) {
-        lectorCSV lector = new lectorCSV();
+        LectorCSV lector = new LectorCSV();
         String filePath = "vgsales.csv";
 
         try {
