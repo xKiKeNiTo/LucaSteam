@@ -4,8 +4,8 @@ package modelos;
  * Clase Juego
  * Modelo para los objetos de tipo Juego con los atributos, getters, setters y toString 
  * 19/11/2024
- * Versión 1
- * Raúl
+ * @version 1
+ * @author raul_
  */
 
 public class Juego {
@@ -19,15 +19,7 @@ public class Juego {
 	private double otherSales;
 	private double globalSales;
 	private Platform platform;
-	private Genre genre;
-	
-	public enum Platform {
-		WII, NES, GB, DS, X360, PS3, PS2, SNES, GBA, PS4, PS, _3DS, _2600, GC, WIIU, XB, PC, GEN, N64, XONE, PSP
-	};
-	
-	public enum Genre {	
-		SPORTS, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SHOOTER, SIMULATION, ACTION, FIGHTING, ADVENTURE
-	};
+	private Genre genre;	
 
 	// Getters & Setters
 	public int getRank() {
@@ -130,7 +122,7 @@ public class Juego {
 	public Juego() {
 		super();
 	}
-	
+
 	// toString
 	@Override
 	public String toString() {

@@ -6,61 +6,106 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelos.Genre;
+import modelos.Juego;
+import modelos.Platform;
+
 /**
  * Clase para leer archivos CSV.
  * @version 1.1
  */
 public class LectorCSV {
 
-    private List<List<String>> juegos;
-
+    private final static String filePath = "vgsales.csv";
+    private List<String> lineasCSV;
+    
     // Constructor
     public LectorCSV() {
-        this.juegos = new ArrayList<>();
+        this.lineasCSV = new ArrayList<>();
     }
 
     /**
      * Método para leer un archivo CSV y cargarlo en una lista de listas.
      * 
      */
-    public void leerCSV(String filePath) throws IOException {
+    public void leerCSV() throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String linea;
+            boolean primeraLinea = true; // Para saltar el encabezado
+
             while ((linea = br.readLine()) != null) {
-                String[] valores = linea.split(","); // Dividir por comas
-                List<String> fila = new ArrayList<>();
-                for (String valor : valores) {
-                    fila.add(valor.trim()); // Agregar cada valor a la fila
+                // Saltar la primera línea (encabezado)
+                if (primeraLinea) {
+                    primeraLinea = false;
+                    continue;
                 }
-                juegos.add(fila); // Agregar la fila a la lista de juegos
+             // Usamos una expresión regular para manejar las comas dentro de las comillas
+                String[] valores = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                lineasCSV.add(linea.trim());  // Almacenar solo las líneas de datos
             }
         }
     }
-
+     
     /**
      * Obtener los juegos leídos del archivo CSV.
      * @return Lista de listas representando las filas del CSV.
      */
-    public List<List<String>> getJuegos() {
-        return juegos;
+    public List<Juego> getJuegos() {
+        List<Juego> juegos = new ArrayList<>();
+
+        // Convertir cada línea en un objeto Juego
+        for (String linea : lineasCSV) {
+        	String[] valores = linea.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+            
+            try {
+                int rank = Integer.parseInt(valores[0].trim());
+                String name = valores[1].trim();
+                Platform platform = Platform.fromString(valores[2].trim()); // Llamamos desde el fromString de la clase Platform
+                
+                // Hay algunos registros que en year pone N/A por lo que hay que manejar los años no válidos
+                int year;
+                try {
+                    year = Integer.parseInt(valores[3].trim());
+                } catch (NumberFormatException e) {
+                    year = 0; // 
+                }
+                
+                Genre genre = Genre.fromString(valores[4].trim());  // Llamamos desde el fromString de la clase Genre
+                String publisher = valores[5].trim();
+                double naSales = Double.parseDouble(valores[6].trim());
+                double euSales = Double.parseDouble(valores[7].trim());
+                double jpSales = Double.parseDouble(valores[8].trim());
+                double otherSales = Double.parseDouble(valores[9].trim());
+                double globalSales = Double.parseDouble(valores[10].trim());
+                             
+                // Crear objeto Juego
+                Juego juego = new Juego(rank, name, year, publisher, naSales, euSales, jpSales, otherSales, globalSales, platform, genre);
+                juegos.add(juego);
+
+            } catch (IllegalArgumentException e) {
+                System.err.println("Error al procesar línea: " + linea + " -> " + e.getMessage());
+            }
+        }
+
+        return juegos; 
     }
 
-    /**
-     * Método principal para probar la lectura de un archivo CSV.
-     * @param args Argumentos de la línea de comandos.
-     */
+    // Método main para probar la funcionalidad
     public static void main(String[] args) {
         LectorCSV lector = new LectorCSV();
-        String filePath = "vgsales.csv"; // Ruta del archivo CSV
-
+        
         try {
-            lector.leerCSV(filePath); // Leer el archivo y llenar la lista
-            List<List<String>> contenido = lector.getJuegos();
-
-            // Imprimir el contenido
-//            for (List<String> fila : contenido) {
-//                System.out.println(fila);
-//            }
+            // Leer el archivo CSV y cargar las líneas
+            lector.leerCSV();
+            
+            // Obtener la lista de juegos
+            List<Juego> juegos = lector.getJuegos();
+            
+            // Imprimir la lista de juegos
+            for (Juego juego : juegos) {
+                System.out.println(juego);  // You can override toString in Juego class to customize the output
+            }
+            
         } catch (IOException e) {
             System.err.println("Error al leer el archivo CSV: " + e.getMessage());
         }
