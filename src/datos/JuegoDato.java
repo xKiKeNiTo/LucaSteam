@@ -35,6 +35,7 @@ public class JuegoDato {
 			for (Juego juego : juegos) {
 				System.out.println(juego);
 			}
+			return true;
 			
 		} catch (IOException e) {
 			System.err.println("Error al leer el archivo CSV: " + e.getMessage());
