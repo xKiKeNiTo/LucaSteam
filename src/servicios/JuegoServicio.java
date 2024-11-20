@@ -16,6 +16,10 @@ import modelos.Juego;
 public class JuegoServicio {
 
     private JuegoDato datos = new JuegoDato();
+
+    public List<Juego> listarJuegos(){
+        return datos.listarJuegos();
+    }
 	
 	/**
      * Redirecciona a datos para filtrar los juegos cargados en la clase por un género específico.

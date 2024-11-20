@@ -27,7 +27,7 @@ public class MenuListarJuegos {
             System.out.println("Listado de todos los juegos registrados:");
 
             // Llama al servicio para obtener todos los juegos
-            List<String> juegos = servicio.listarJuegos();
+            // List<String> juegos = servicio.listarJuegos();
 
             // Muestra los juegos o indica si no hay registros
             if (juegos.isEmpty()) {

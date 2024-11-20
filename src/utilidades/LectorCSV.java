@@ -93,7 +93,7 @@ public class LectorCSV {
             
             // Imprimir la lista de juegos
             for (Juego juego : juegos) {
-                System.out.println(juego);
+                System.out.println(juego);  // You can override toString in Juego class to customize the output
             }
             
         } catch (IOException e) {
