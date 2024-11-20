@@ -25,7 +25,8 @@ public class Juego {
 		WII, NES, GB, DS, X360, PS3, PS2, SNES, GBA, PS4, PS, _3DS, _2600, GC, WIIU, XB, PC, GEN, N64, XONE, PSP
 	};
 	
-	public enum Genre {		
+	public enum Genre {	
+		SPORTS, PLATFORM, RACING, ROLEPLAYING, PUZZLE, MISC, SHOOTER, SIMULATION, ACTION, FIGHTING, ADVENTURE
 	};
 
 	// Getters & Setters
