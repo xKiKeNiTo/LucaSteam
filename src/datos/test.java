@@ -1,7 +1,8 @@
 package datos;
 
 import java.util.List;
-import utilidades.lectorCSV;
+
+import utilidades.LectorCSV;
 
 public class test {
     // public boolean listarPorGenero(Enum genero){
@@ -12,7 +13,7 @@ public class test {
     // }
 
     public static void main(String[] args) {
-        lectorCSV lector = new lectorCSV();
+        LectorCSV lector = new LectorCSV();
         List<List<String>> juegos = lector.getJuegos();
         for (List<String> fila : juegos) {
             System.out.println(fila);
