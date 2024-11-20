@@ -19,6 +19,8 @@ import modelos.Genre;
 
 public class JuegoDato {
 	
+	private static CSV csv = new CSV();
+	
 	/**
 	 * Metodo que recibiendo un unico objeto Juego, hace uso de la utilidad
 	 * "guardarCSV" y actualiza el CSV
@@ -40,9 +42,11 @@ public class JuegoDato {
 
 	public static boolean listarJuegos() {
 		
+		
+		
 		try {
-			CSV.leerCSV();
-			List<Juego> juegos = CSV.getJuegos();
+			csv.leerCSV();
+			List<Juego> juegos = csv.getJuegos();
 			
 			if (juegos.isEmpty()) {				
 				System.out.println("No hay datos disponibles en el CSV");
@@ -72,8 +76,8 @@ public class JuegoDato {
 
 		List<Juego> juegosFiltrados = new ArrayList<>();
 		try {
-			CSV.leerCSV();
-			List<Juego> juegos = CSV.getJuegos();
+			csv.leerCSV();
+			List<Juego> juegos = csv.getJuegos();
 			for (Juego juego : juegos) {
 				if (juego.getGenre() == genero) {
 					juegosFiltrados.add(juego);

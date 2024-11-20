@@ -1,9 +1,9 @@
 package modelos;
 
 /**
- * Clase Juego
- * Modelo para los objetos de tipo Juego con los atributos, getters, setters y toString 
- * 19/11/2024
+ * Clase Juego Modelo para los objetos de tipo Juego con los atributos, getters,
+ * setters y toString 19/11/2024
+ * 
  * @version 1
  * @author raul_
  */
@@ -11,15 +11,15 @@ package modelos;
 public class Juego {
 	private int rank;
 	private String name;
+	private Platform platform;
 	private int year;
+	private Genre genre;
 	private String publisher;
 	private double naSales;
 	private double euSales;
 	private double jpSales;
 	private double otherSales;
 	private double globalSales;
-	private Platform platform;
-	private Genre genre;
 
 	// Getters & Setters
 	public int getRank() {
@@ -93,7 +93,7 @@ public class Juego {
 	public void setGlobalSales(double globalSales) {
 		this.globalSales = globalSales;
 	}
-	
+
 	public Platform getPlatform() {
 		return platform;
 	}
@@ -122,10 +122,10 @@ public class Juego {
 		this.euSales = euSales;
 		this.jpSales = jpSales;
 		this.otherSales = otherSales;
-		this.globalSales = globalSales;	
+		this.globalSales = globalSales;
 		this.platform = platform;
 		this.genre = genre;
-		}
+	}
 
 	public Juego() {
 		super();
@@ -134,18 +134,9 @@ public class Juego {
 	// toString
 	@Override
 	public String toString() {
-		return "Juego [rank=" + rank + 
-				", name=" + name + 
-				", year=" + year + 
-				", publisher=" + publisher + 
-				", platform=" + platform + 
-				", genre=" + genre + 
-				", naSales=" + naSales + 
-				", euSales=" + euSales + 
-				", jpSales=" + jpSales + 
-				", otherSales=" + otherSales + 
-				", globalSales=" + globalSales + 				
-				"]";
+		return "Juego [rank=" + rank + ", name=" + name + ", year=" + year + ", publisher=" + publisher + ", platform="
+				+ platform + ", genre=" + genre + ", naSales=" + naSales + ", euSales=" + euSales + ", jpSales="
+				+ jpSales + ", otherSales=" + otherSales + ", globalSales=" + globalSales + "]";
 	}
-			     
+
 }

@@ -26,11 +26,11 @@ public class CSV {
 
 	private static final Logger log = Logger.getLogger(CSV.class.getName());
 
-	private static List<String> lineasCSV;
+	private List<String> lineasCSV;
 
 	// Constructor
 	public CSV() {
-		CSV.lineasCSV = new ArrayList<>();
+		this.lineasCSV = new ArrayList<>();
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class CSV {
 	 * 
 	 */
 
-	public static void leerCSV() throws IOException {
+	public void leerCSV() throws IOException {
 		try (BufferedReader br = new BufferedReader(new FileReader(fichero))) {
 			String linea;
 			boolean primeraLinea = true; // Para saltar el encabezado
@@ -61,7 +61,7 @@ public class CSV {
 	 * 
 	 * @return Lista de listas representando las filas del CSV.
 	 */
-	public static List<Juego> getJuegos() {
+	public List<Juego> getJuegos() {
 		List<Juego> juegos = new ArrayList<>();
 
 		// Convertir cada línea en un objeto Juego
@@ -128,21 +128,22 @@ public class CSV {
 			Class<?> clase = objetos.get(0).getClass(); // Obtener la clase del primer objeto
 			Field[] campos = clase.getDeclaredFields(); // Obtener los campos de la clase
 
-			if (!f.exists()) {
-
-				// Escribir nombres de los campos como encabezado
-				for (int i = 0; i < campos.length; i++) {
-					fw.write(campos[i].getName());
-					if (i < campos.length - 1) {
-						fw.write(",");
-					}
-				}
-				fw.write("\n");
-
-			}
+//			if (!f.exists()) {
+//
+//				// Escribir nombres de los campos como encabezado
+//				for (int i = 0; i < campos.length; i++) {
+//					fw.write(campos[i].getName());
+//					if (i < campos.length - 1) {
+//						fw.write(",");
+//					}
+//				}
+//				fw.write("\n");
+//
+//			}
 
 			// Escribir los valores de los objetos
 			for (T objeto : objetos) {
+				fw.write("\n");
 				for (int i = 0; i < campos.length; i++) {
 					campos[i].setAccessible(true); // Permitir acceso a campos privados
 					Object valor = campos[i].get(objeto); // Obtener el valor del campo
@@ -151,7 +152,6 @@ public class CSV {
 						fw.write(",");
 					}
 				}
-				fw.write("\n");
 			}
 
 			System.out.println("Archivo CSV guardado exitosamente");
