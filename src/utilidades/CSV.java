@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 import java.util.logging.Level;
 
 /**
- * Clase para las utilidades del CSV
- * 20/11/2024
+ * Clase para las utilidades del CSV 20/11/2024
+ * 
  * @version 1.1
  * @author kikev e ivan
  */
@@ -58,11 +58,14 @@ public class CSV {
 	}
 
 	/**
-	 * Metodo para guardar, añadiendo, una lista de objetos genericos, comun para Juegos, Generos, Plataformas...
+	 * Metodo para guardar, añadiendo, una lista de objetos genericos, comun para
+	 * Juegos, Generos, Plataformas...
 	 * 
-	 * @param <T> objeto generico
-	 * @param objetos Lista de objetos generica, si se quiere añadir uno solo, se ha de meter en una lista de un solo objeto
-	 * @param f objeto que hace referencia al fichero CSV, en este caso, estatico en la clase CSV
+	 * @param <T>     objeto generico
+	 * @param objetos Lista de objetos generica, si se quiere añadir uno solo, se ha
+	 *                de meter en una lista de un solo objeto
+	 * @param f       objeto que hace referencia al fichero CSV, en este caso,
+	 *                estatico en la clase CSV
 	 * @return true si se ha conseguido hacer con exito, false si no
 	 */
 	public static <T> boolean guardarCSV(List<T> objetos, File f) {
@@ -73,13 +76,13 @@ public class CSV {
 			return false;
 		}
 
-		try (FileWriter fw = new FileWriter(f, true)) {		// "true" añade el contenido y no lo sobreescribe 
+		try (FileWriter fw = new FileWriter(f, true)) { // "true" añade el contenido y no lo sobreescribe
 			// Escribir encabezado
 			Class<?> clase = objetos.get(0).getClass(); // Obtener la clase del primer objeto
 			Field[] campos = clase.getDeclaredFields(); // Obtener los campos de la clase
 
-			if (!f.exists()) { 
-				
+			if (!f.exists()) {
+
 				// Escribir nombres de los campos como encabezado
 				for (int i = 0; i < campos.length; i++) {
 					fw.write(campos[i].getName());
@@ -88,7 +91,7 @@ public class CSV {
 					}
 				}
 				fw.write("\n");
-				
+
 			}
 
 			// Escribir los valores de los objetos
@@ -107,38 +110,15 @@ public class CSV {
 			System.out.println("Archivo CSV guardado exitosamente");
 			log.info("Archivo CSV guardado exitosamente");
 			return true;
-			
+
 		} catch (IOException | IllegalAccessException e) {
-			
+
 			System.err.println("Error al guardar el CSV: " + e.getMessage());
 			log.warning("Error al guardar el CSV");
 			return false;
-			
+
 		}
 
-		
-	}
-
-	/**
-	 * Método principal para probar la lectura de un archivo CSV.
-	 * 
-	 * @param args Argumentos de la línea de comandos.
-	 */
-	public static void main(String[] args) {
-		LectorCSV lector = new LectorCSV();
-		String filePath = "vgsales.csv"; // Ruta del archivo CSV
-
-		try {
-			lector.leerCSV(filePath); // Leer el archivo y llenar la lista
-			List<List<String>> contenido = lector.getJuegos();
-
-			// Imprimir el contenido
-//            for (List<String> fila : contenido) {
-//                System.out.println(fila);
-//            }
-		} catch (IOException e) {
-			System.err.println("Error al leer el archivo CSV: " + e.getMessage());
-		}
 	}
 
 }

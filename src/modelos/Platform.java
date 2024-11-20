@@ -1,7 +1,7 @@
 package modelos;
 
 public enum Platform{
-    WII, 
+    Wii, 
     NES, 
     GB, 
     DS, 
@@ -15,11 +15,37 @@ public enum Platform{
     _3DS, 
     _2600, 
     GC, 
-    WIIU, 
+    WiiU, 
     XB, 
     PC, 
     GEN, 
     N64, 
-    XONE, 
-    PSP;
+    XOne, 
+    PSP,
+    PSV,
+    DC,
+    SAT,
+    PCFX,
+    NG,
+    SCD,
+    WS,
+    TG16,
+    GG,
+    _3DO;
+	
+	// Método para mapear los valores del CSV al Enum
+    public static Platform fromString(String platformText) {
+        switch (platformText) {
+            case "3DS":
+                return _3DS; 
+            case "2600":
+            	return _2600;
+            case "3DO":
+            	return _3DO;
+            default:
+                return Platform.valueOf(platformText); // Si coincide exactamente, usar el valor del Enum
+        }
+    }
+	
+	
 };

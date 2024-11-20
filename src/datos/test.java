@@ -12,11 +12,11 @@ public class test {
 
     // }
 
-    public static void main(String[] args) {
-        LectorCSV lector = new LectorCSV();
-        List<List<String>> juegos = lector.getJuegos();
-        for (List<String> fila : juegos) {
-            System.out.println(fila);
-        }
-    }
+//    public static void main(String[] args) {
+//        LectorCSV lector = new LectorCSV();
+//        List<List<String>> juegos = lector.getJuegos();
+//        for (List<String> fila : juegos) {
+//            System.out.println(fila);
+//        }
+//    }
 }
