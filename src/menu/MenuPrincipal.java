@@ -2,6 +2,7 @@ package menu;
 
 import java.util.logging.Logger;
 import utilidades.LeerTeclado;
+import java.util.logging.Logger;
 
 /**
  * Clase MenuPrincipal.
@@ -32,20 +33,20 @@ public class MenuPrincipal {
                 int opcion = LeerTeclado.leerInt("Seleccione una opción:");
 
                 switch (opcion) {
-                    // case 1 -> {
-                    //     logger.info("Seleccionada opción 1: Dar de alta un juego");
-                    //     boolean altaExitosa = FormularioAlta.darDeAlta();
-                    //     if (!altaExitosa) {
-                    //         logger.warning("La operación de alta falló.");
-                    //     }
-                    // }
-                    // case 2 -> {
-                    //     logger.info("Seleccionada opción 2: Listar todos los juegos");
-                    //     boolean listadoExitoso = MenuListarJuegos.listarJuegos();
-                    //     if (!listadoExitoso) {
-                    //         logger.warning("El listado de juegos falló.");
-                    //     }
-                    // }
+                    case 1 -> {
+                        logger.info("Seleccionada opción 1: Dar de alta un juego");
+                        boolean altaExitosa = FormularioAlta.darDeAlta();
+                        if (!altaExitosa) {
+                            logger.warning("La operación de alta falló.");
+                        }
+                    }
+                    case 2 -> {
+                        logger.info("Seleccionada opción 2: Listar todos los juegos");
+                        boolean listadoExitoso = MenuListarJuegos.listarJuegos();
+                        if (!listadoExitoso) {
+                            logger.warning("El listado de juegos falló.");
+                        }
+                    }
                     case 3 -> {
                         logger.info("Seleccionada opción 3: Listar juegos por género");
                         boolean listadoPorGeneroExitoso = MenuListarPorGenero.listarPorGenero();

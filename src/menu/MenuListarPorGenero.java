@@ -7,7 +7,15 @@ import modelos.Juego;
 import servicios.JuegoServicio;
 import utilidades.LeerTeclado;
 
+/**
+ * Clase MenuListarPorGenero.
+ * Se encarga de mostrar los juegos filtrados por género.
+ * @version 1.1
+ * @author kikev
+ * Fecha: 20/11/2024
+ */
 public class MenuListarPorGenero {
+
     private static final Logger logger = Logger.getLogger(MenuListarPorGenero.class.getName());
     private static final JuegoServicio juegoServicio = new JuegoServicio();
 
