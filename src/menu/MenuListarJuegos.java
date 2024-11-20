@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  * Clase MenuListarJuegos
  * Se encarga de listar todos los juegos registrados en el sistema.
  * @version 1.1
- * @author kikev
+ * @author kikev, raul_
  * Fecha: 20/11/2014
  */
 
@@ -30,6 +30,9 @@ public class MenuListarJuegos {
         logger.info("Iniciando listado de todos los juegos registrados.");
 		System.out.println("Cargando todos los juegos..");
 		
+		 // Inicializar el servicio dentro del método estático
+        JuegoServicio juegoServicio = new JuegoServicio();
+		
 		// Delegar a la capa de servicio
         boolean resultado = juegoServicio.listarJuegos();
         
@@ -42,10 +45,10 @@ public class MenuListarJuegos {
 	}
 	
 	// Método main para probar
-    public static void main(String[] args) {
-    	
-    	MenuListarJuegos menu = new MenuListarJuegos();       
-        menu.listarJuegos();                            
-   }
+//    public static void main(String[] args) {
+//    	
+//    	MenuListarJuegos menu = new MenuListarJuegos();       
+//        menu.listarJuegos();                            
+//   }
     
 }
