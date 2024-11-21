@@ -1,5 +1,6 @@
 package menu;
 
+import java.util.logging.Logger;
 import utilidades.LeerTeclado;
 import java.util.logging.Logger;
 

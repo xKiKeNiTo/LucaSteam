@@ -1,6 +1,8 @@
 package servicios;
 
 import datos.JuegoDato;
+import java.util.List;
+import modelos.Genre;
 import modelos.Juego;
 
 
@@ -14,9 +16,9 @@ import modelos.Juego;
  */
 
 public class JuegoServicio {
-	
-	private JuegoDato juegoDato;
-	
+
+    private JuegoDato juegoDato = new JuegoDato();
+
 	// Constructor
 	public JuegoServicio() {
 		this.juegoDato = new JuegoDato();
@@ -28,6 +30,12 @@ public class JuegoServicio {
 	}
 	
 	/**
+     * Redirecciona a datos para filtrar los juegos cargados en la clase por un género específico.
+     */
+    public List<Juego> listarPorGenero(Genre genero) {
+        return juegoDato.listarPorGenero(genero);
+    }
+    /*
 	 * Metodo que redirecciona la accion al paquete de datos
 	 * @param j es el objeto Juego que recibimos y enviamos
 	 * @return true si se completa, false si no
